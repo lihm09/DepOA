@@ -127,8 +127,9 @@ INSTALLED_APPS = (
     'grappelli',
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    #'django.contrib.admindocs',
     'doc',
+    'org',
 )
 
 # A sample logging configuration. The only tangible logging
