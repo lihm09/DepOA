@@ -3,5 +3,7 @@
 *.pyc
 *.xml
 *.iml
+*.ids
+*.db
 .name
 local_settings.py
