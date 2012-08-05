@@ -68,6 +68,10 @@ STATIC_ROOT = ''
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
 
+# Make sure to use a trailing slash.
+# Examples: "http://foo.com/static/admin/", "/static/admin/".
+ADMIN_MEDIA_PREFIX = STATIC_URL+"grappelli/"
+
 # Additional locations of static files
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
@@ -109,7 +113,7 @@ ROOT_URLCONF = 'DepOA.urls'
 WSGI_APPLICATION = 'DepOA.wsgi.application'
 
 TEMPLATE_DIRS = (
-    os.path.join(DIRNAME, 'templates').replace('//','/'),
+    os.path.join(DIRNAME, 'templates').replace('\\','/'),
     )
 
 INSTALLED_APPS = (
@@ -120,6 +124,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
+    'grappelli',
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
