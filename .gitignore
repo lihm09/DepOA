@@ -6,4 +6,5 @@
 *.ids
 *.db
 .name
+test.*
 local_settings.py

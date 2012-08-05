@@ -1,10 +1,13 @@
 # Django settings for DepOA project.
+import os
+
+DIRNAME=os.path.abspath(os.path.join(os.path.dirname(__file__),".."))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('depsast', 'depsast@thudep.org'),
+    ('depsast', 'depsast@thudep.org'),
 )
 
 MANAGERS = ADMINS
@@ -105,7 +108,9 @@ ROOT_URLCONF = 'DepOA.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'DepOA.wsgi.application'
 
-TEMPLATE_DIRS = ('D:/work/Project/Python/DepOA/templates',)
+TEMPLATE_DIRS = (
+    os.path.join(DIRNAME, 'templates').replace('//','/'),
+    )
 
 INSTALLED_APPS = (
     'django.contrib.auth',
