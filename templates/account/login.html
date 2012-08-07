@@ -1,0 +1,22 @@
+{% extends "account/base.html" %}
+
+{% block title %}登陆{% endblock %}
+
+{% block content %}
+
+    <div id="formContainer">
+        <form id="login" method="post" action="/admin/">
+            {% csrf_token %}
+            <!--a href="#" id="flipToRecover" class="flipLink">Forgot?</a-->
+            <input type="text" name="username" id="username" placeholder="用户名" />
+            <input type="password" name="password" id="password" laceholder="密码" />
+            <input type="submit" name="submit" value="登陆" />
+        </form>
+        <form id="recover" method="post" action="./">
+            <a href="#" id="flipToLogin" class="flipLink">Forgot?</a>
+            <input type="text" name="recoverEmail" id="recoverEmail" value="Email" />
+            <input type="submit" name="submit" value="Recover" />
+        </form>
+    </div>
+
+{% endblock %}

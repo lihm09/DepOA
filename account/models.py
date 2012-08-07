@@ -22,16 +22,15 @@ GRADE_CHOICES = (
 )
 
 class UserProfile(models.Model):
+    student_number = models.CharField('学号',unique=True, max_length=10)
     user = models.ForeignKey(User, unique=True, verbose_name='用户')
-    student_number = models.CharField('学号', max_length=10)
     grade = models.CharField('年级' ,max_length=1, choices=GRADE_CHOICES, default='0')
     class_name = models.CharField('班级', max_length=5)
-    mobile = models.CharField('手机', max_length=11)
+    mobile = models.CharField('手机',unique=True, max_length=11)
     address = models.CharField('宿舍', max_length=10, blank=True, null=True)
     gender = models.CharField('性别', max_length=1, choices=GENDER_CHOICES, default='M')
     website = models.URLField('个人主页', blank=True, null=True)
     birthday = models.DateField('生日', blank=True, null=True)
-
 
     class Meta:
         verbose_name="用户资料"
