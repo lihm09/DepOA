@@ -116,6 +116,8 @@ TEMPLATE_DIRS = (
     os.path.join(DIRNAME, 'templates').replace('\\','/'),
     )
 
+AUTH_PROFILE_MODULE='account.UserProfile'
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,6 +132,7 @@ INSTALLED_APPS = (
     #'django.contrib.admindocs',
     'doc',
     'org',
+    'account',
 )
 
 # A sample logging configuration. The only tangible logging
