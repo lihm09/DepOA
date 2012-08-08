@@ -36,3 +36,5 @@ class UserProfile(models.Model):
         verbose_name="用户资料"
         verbose_name_plural="用户资料"
 
+    def __str__(self):
+        return self.user.username
