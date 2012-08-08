@@ -2,6 +2,7 @@
 
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib import admin
 
 GENDER_CHOICES = (
     ('M', '男'),
@@ -22,8 +23,8 @@ GRADE_CHOICES = (
 )
 
 class UserProfile(models.Model):
+    user = models.OneToOneField(User, unique=True, verbose_name='用户')
     student_number = models.CharField('学号',unique=True, max_length=10)
-    user = models.ForeignKey(User, unique=True, verbose_name='用户')
     grade = models.CharField('年级' ,max_length=1, choices=GRADE_CHOICES, default='0')
     class_name = models.CharField('班级', max_length=5)
     mobile = models.CharField('手机',unique=True, max_length=11)
@@ -35,6 +36,10 @@ class UserProfile(models.Model):
     class Meta:
         verbose_name="用户资料"
         verbose_name_plural="用户资料"
+
+    class Admin:
+        list_display = ("user","student_number","grade","class_name","mobile","address","gender","birthday")
+        radio_fields = {'gender':admin.HORIZONTAL}
 
     def __str__(self):
         return self.user.username

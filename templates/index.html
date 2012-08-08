@@ -1,4 +1,4 @@
-这是主页
+
 {% if user.is_authenticated %}
         <a href="/account/logout/">欢迎您：{{user.username}}</a>
     <p>{{ user.get_profile }}</p>
