@@ -1,11 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}主页{% endblock %}
+
+{% block content %}
 
 {% if user.is_authenticated %}
-        <a href="/account/logout/">欢迎您：{{user.username}}</a>
-    <p>{{ user.get_profile }}</p>
+    欢迎您：<a href="{% url account.views.logout_view %}">{{user.username}}</a>
 {% else %}
-    <form action="/account/login/" method='post'>{% csrf_token %}
+    <form action='{% url account.views.login_view %}' method='post'>{% csrf_token %}
         <input name='username' type="text" placeholder="用户名">
         <input name='password' type="password" placeholder="密码">
         <input type="submit" value="登陆">
     </form>
 {% endif %}
+
+{% endblock %}
