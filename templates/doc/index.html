@@ -3,11 +3,11 @@
 {% block title %}文件下发{% endblock %}
 
 {% block content %}
+<h1>文件下发</h1>
 
-    {% if user.is_authenticated %}
-        欢迎您：<a href="{% url account.views.logout_view %}">{{user.username}}</a>
-    {% else %}
-        您还未登录
-    {% endif %}
-
+    <ul>
+    {% for file in file_list %}
+        <li>{{ file.file_name }}</li>
+    {% endfor %}
+    </ul>
 {% endblock %}
