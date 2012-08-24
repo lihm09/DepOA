@@ -119,6 +119,11 @@ TEMPLATE_DIRS = (
 
 AUTH_PROFILE_MODULE='account.UserProfile'
 
+LOGIN_URL='/login/'
+LOGIN_REDIRECT_URL='/'
+LOGOUT_URL='/logout/'
+
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',

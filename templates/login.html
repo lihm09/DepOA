@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cn" lang="cn" encoding="UTF-8">
+<head>
+    <title>工物系在线办公系统 : 登陆</title>
+    <link rel="stylesheet" type="text/css" href="/media/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/media/css/bootstrap.css">
+</head>
+<body>
+
+    {% if form.errors %}
+    <p>您的用户名或密码错误，请重试。</p>
+    {% endif %}
+
+    <form action='{% url django.contrib.auth.views.login %}' method='post'>
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>
+                    <input name='username' type="text" placeholder="用户名">
+                </td>
+            </tr>
+            <tr>
+                <td>
+        <input name='password' type="password" placeholder="密码">
+                </td>
+            </tr>
+            <tr>
+                <td>
+        <input class="btn" type="submit" value="登陆">
+                </td>
+            </tr>
+        </table>
+        <input type="hidden" name="next" value="{{ next }}">
+    </form>
+
+</body>
+</html>
