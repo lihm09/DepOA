@@ -3,9 +3,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cn" lang="cn" encoding="UTF-8">
   <head>
     <title>工物系在线办公系统 : {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="/media/css/main.css">
+      <link rel="stylesheet" type="text/css" href="/media/css/bootstrap.css">
     {% block extrahead %}{% endblock %}
   </head>
   <body>
+
+  <div>
+      {% if user.is_authenticated %}
+          欢迎您：<a href="{% url account.views.logout_view %}">{{user.username}}</a>
+      {% else %}
+          <form class="form-horizontal" action='{% url account.views.login_view %}' method='post'>{% csrf_token %}
+              <input class="input-small" name='username' type="text" placeholder="用户名">
+              <input class="input-small" name='password' type="password" placeholder="密码">
+              <input class="btn" type="submit" value="登陆">
+          </form>
+      {% endif %}
+  </div>
+
       <div class="container">
           {% block content %}{% endblock %}
       </div>

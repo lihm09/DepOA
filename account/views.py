@@ -14,8 +14,5 @@ def login_view(request):
         return HttpResponseRedirect('/')
 
 def logout_view(request):
-    if request.method == 'POST':
-        logout(request)
-        return HttpResponseRedirect('/')
-    else:
-        return HttpResponseRedirect('/')
+    logout(request)
+    return HttpResponseRedirect('/')

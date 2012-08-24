@@ -1,0 +1,13 @@
+{% extends "doc/base.html" %}
+
+{% block title %}文件下发{% endblock %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+        欢迎您：<a href="{% url account.views.logout_view %}">{{user.username}}</a>
+    {% else %}
+        您还未登录
+    {% endif %}
+
+{% endblock %}
