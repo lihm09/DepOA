@@ -1,4 +1,11 @@
 body{
     background-image: url("/media/img/bg.png");
     background-repeat: repeat;
+    text-shadow: 1.5px 1.5px 1.5px #aaa;
+    padding-top: 60px;
+    padding-bottom: 40px;
     }
+
+.brand{
+    text-shadow: none;
+}
