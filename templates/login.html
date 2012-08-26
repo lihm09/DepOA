@@ -1,23 +1,31 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cn" lang="cn" encoding="UTF-8">
-<head>
-    <title>工物系在线办公系统 : 登陆</title>
-    <link rel="stylesheet" type="text/css" href="/media/css/main.css">
-    <link rel="stylesheet" type="text/css" href="/media/css/bootstrap.css">
-    <script type="text/javascript" src="/media/js/bootstrap-alert.js"></script>
-</head>
-<body>
+{% block title %}登陆{% endblock %}
 
-<div align="center">
+{% block content %}
+
+    {% if user.is_authenticated %}
+
+        <h2 class="alert" align="center">{{ user.username }}已经登陆了哦！
+            <a class="btn btn-inverse" href="/">返回</a>
+        </h2>
+
+        <h2 class="alert" align="center">还是说您想要
+            <a class="btn btn-warning" href="/logout/">换个账号登陆</a>？
+        </h2>
+
+        {% else %}
+
+        <h1 align="center">工物系办公平台</h1>
+        <br/>
 
     {% if form.errors %}
-        <div class="alert alert-error">
-            <p>您的用户名或密码错误，请重试。</p>
+        <div align="center" class="pager">
+            <span class="alert alert-error" align="center">啊咧？不要用错误的信息糊弄人家嘛！</span>
         </div>
     {% endif %}
 
-    <table>
+    <table align="center">
         <form action='/login/' method='post'>
             {% csrf_token %}
             <input type="hidden" name="next" value="{{ next }}">
@@ -33,22 +41,26 @@
                 </td>
             </tr>
             <tr>
-                <td>
-                    <input class="btn" type="submit" value="登陆">
+                <td align="center">
+                    <input class="btn btn-info" type="submit" value="登陆">
                 </td>
         </form>
-                <td>
-                    <a class="btn" href="/">返回</a>
+                <td align="center">
+                    <a class="btn btn-inverse" href="/">返回</a>
                 </td>
             </tr>
     </table>
 
-</div>
+    {% endif %}
+
+{% endblock %}
 
 
+{% block exjs %}
 <script type="text/javascript">
     $(".alert").alert();
 </script>
+{% endblock %}
 
 </body>
 </html>
