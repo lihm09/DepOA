@@ -1,0 +1,13 @@
+{% extends "doc/base.html" %}
+
+{% block title %}文件下发{% endblock %}
+
+{% block content %}
+<h1>文件下发</h1>
+
+    <ul>
+    {% for file in file_list %}
+        <li>{{ file.file_name }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
