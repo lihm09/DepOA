@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cn" lang="cn" encoding="UTF-8">
+  <head>
+      <title>工物系在线办公系统 : {% block title %}{% endblock %}</title>
+      <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, user-scalable=no">
+      <link rel="stylesheet" type="text/css" href="/media/css/main.css">
+      <link rel="stylesheet" type="text/css" href="/media/css/bootstrap.css">
+      <link rel="stylesheet" type="text/css" href="/media/css/bootstrap-responsive.css">
+      {% block extrahead %}{% endblock %}
+  </head>
+
+  <body>
+
+  <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+          <div class="container">
+              <button type="button"class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="brand" href="/">DepOA</a>
+              <div class="nav-collapse">
+                  <ul class="nav">
+                      <li><a href="/doc">办公</a></li>
+                      <li><a href="#">日程</a></li>
+                      <li><a href="#">交流</a></li>
+                      <li><a href="#">人力</a></li>
+                      <li><a href="#">物资</a></li>
+                  </ul>
+              </div>
+              <div class="pull-right form-inline" style="max-height: 40px">
+                  {% if user.is_authenticated %}
+                      <span class="label">{{user.username}}</span>
+                      <a class="btn btn-danger" href="/logout/">注销</a>
+                  {% else %}
+                      <form class="form-horizontal" action='/login/' method='post'>{% csrf_token %}
+                          <input class="input-small" name='username' type="text" placeholder="用户名">
+                          <input class="input-small" name='password' type="password" placeholder="密码">
+                          <input class="btn btn-info" type="submit" value="登陆">
+                      </form>
+                  {% endif %}
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  <div class="container">
+      {% block content %}{% endblock %}
+
+      <hr />
+
+      <footer>
+          <p>&copy; 清华大学工物系学生科协 2012</p>
+      </footer>
+
+  </div>
+
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="/media/js/jquery.js"></script>
+  <script src="/media/js/bootstrap-transition.js"></script>
+  <script src="/media/js/bootstrap-alert.js"></script>
+  <script src="/media/js/bootstrap-modal.js"></script>
+  <script src="/media/js/bootstrap-dropdown.js"></script>
+  <script src="/media/js/bootstrap-scrollspy.js"></script>
+  <script src="/media/js/bootstrap-tab.js"></script>
+  <script src="/media/js/bootstrap-tooltip.js"></script>
+  <script src="/media/js/bootstrap-popover.js"></script>
+  <script src="/media/js/bootstrap-button.js"></script>
+  <script src="/media/js/bootstrap-collapse.js"></script>
+  <script src="/media/js/bootstrap-carousel.js"></script>
+  <script src="/media/js/bootstrap-typeahead.js"></script>
+
+  {% block exjs %}{% endblock %}
+
+  </body>
+</html>

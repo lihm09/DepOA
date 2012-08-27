@@ -94,7 +94,7 @@ SECRET_KEY = 'njk!z47dfaj%dg8+izrexrkx0yyd=szuhqxkzx)3htdv!0blg-'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -107,6 +107,7 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+
 ROOT_URLCONF = 'DepOA.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
@@ -115,6 +116,13 @@ WSGI_APPLICATION = 'DepOA.wsgi.application'
 TEMPLATE_DIRS = (
     os.path.join(DIRNAME, 'templates').replace('\\','/'),
     )
+
+AUTH_PROFILE_MODULE='account.UserProfile'
+
+LOGIN_URL='/login/'
+LOGIN_REDIRECT_URL='/'
+LOGOUT_URL='/logout/'
+
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -127,7 +135,8 @@ INSTALLED_APPS = (
     'grappelli',
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    #'django.contrib.admindocs',
+    'account',
     'doc',
 )
 

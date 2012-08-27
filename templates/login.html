@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}登陆{% endblock %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+
+        <h2 class="alert" align="center">{{ user.username }}已经登陆了哦！
+            <a class="btn btn-inverse" href="/">返回</a>
+        </h2>
+
+        <h2 class="alert" align="center">还是说您想要
+            <a class="btn btn-warning" href="/logout/">换个账号登陆</a>？
+        </h2>
+
+        {% else %}
+
+        <h1 align="center">工物系办公平台</h1>
+        <br/>
+
+    {% if form.errors %}
+        <div align="center" class="pager">
+            <span class="alert alert-error" align="center">啊咧？不要用错误的信息糊弄人家嘛！</span>
+        </div>
+    {% endif %}
+
+    <table align="center">
+        <form action='/login/' method='post'>
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}">
+
+            <tr>
+                <td colspan="2" >
+                    <input name='username' type="text" placeholder="用户名" value="">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input name='password' type="password" placeholder="密码" value="">
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <input class="btn btn-info" type="submit" value="登陆">
+                </td>
+        </form>
+                <td align="center">
+                    <a class="btn btn-inverse" href="/">返回</a>
+                </td>
+            </tr>
+    </table>
+
+    {% endif %}
+
+{% endblock %}
+
+
+{% block exjs %}
+<script type="text/javascript">
+    $(".alert").alert();
+</script>
+{% endblock %}
+
+</body>
+</html>
