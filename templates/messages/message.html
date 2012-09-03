@@ -4,7 +4,7 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-        <h1>Messages</h1>
+        <h1>留言板</h1>
         <table>
             {% for message in messages %}
                 <tr>
@@ -19,14 +19,16 @@
                 </tr>
             {% endfor %}
         </table>
-    {% endif %}
 
-    <h2>Leave your message</h2>
-    <form action="." method="POST">
-        <table>
-            {{ form.as_table }}
-        </table>
-        {% csrf_token %}
-        <p><input type="submit" value="Submit"></p>
-    </form>
+        <h2>发表留言</h2>
+        <form action="." method="POST">
+            <table>
+                {{ form.as_table }}
+            </table>
+            {% csrf_token %}
+            <p><input type="submit" value="发表"></p>
+        </form>
+    {% else %}
+        <h1>请登录</h1>
+    {% endif %}
 {% endblock %}

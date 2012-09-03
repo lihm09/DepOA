@@ -17,5 +17,5 @@ class DocPub(models.Model):
         verbose_name="文件下发"
         verbose_name_plural="文件下发"
 
-    def __str__(self):
-        return str(self.file_name)
+    def __unicode__(self):
+        return self.file_name

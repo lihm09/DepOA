@@ -1,8 +1,10 @@
+#encoding=utf-8
+
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from forms import MessageForm
-from models import Message
+from models import Message,Situation
 
 def message(request):
     if request.method == "POST":
@@ -13,6 +15,7 @@ def message(request):
             title = form.cleaned_data['title']
             content = form.cleaned_data['content']
             ip = request.META['REMOTE_ADDR']
+
             m = Message(name=name,
                 email=email,
                 title=title,
