@@ -7,7 +7,7 @@ DepOA
 ## 使用到的其他库：
 
 * **grappelli**  *美化admin界面*
-
+* **grappelli 的安装**  *下载地址：https://github.com/sehmaschine/django-grappelli*
 
 ## 功能设计
 
